@@ -23,7 +23,7 @@ This guide isn't made to be consumed at once, but it's here to expand on any of 
 * [SSH Keys](#ssh)
 * [Symbolic links](#symbolicLinks)
 
-## [linuxFiles]The Linux Filesystem
+## <a name="linuxFiles"></a>The Linux Filesystem
 
 All Linux OS distributions are based on the UNIX file system.
 
@@ -70,7 +70,7 @@ These four directories contain programs used by the system and its users. When y
 `/sbin` and `/usr/sbin` both contain programs used by system administrators such as `reboot` and `adduser`.
 It's important to note that the programs at these locations can all be run with their direct path e.g. `/bin/ls -al` instead of `ls -al`.
 
-## [fileAccess]File access and ownership
+## <a name="fileAccess"></a>File access and ownership
 
 All users belong to a user group. A user can belong to multiple groups, but they will always have one group as their __primary group__. The primary group is the group applied to you when you log in to the shell. Each group can have multiple users.
 
@@ -122,11 +122,11 @@ drwxr-xr-x 1 root      www-data 801 Sep 18 11:31 directory1
 
 It is important to note that the root user has `rwx` permissions for all files. To carry out a command specifically as the root user we would prepend a command with the `sudo` command.
 
-## [bashrc].bashrc and environment variables
+## <a name="bashrc"></a>.bashrc and environment variables
 
 `.bashrc` is a configuration file that is executed every time you open/log into a terminal. `.bashrc` contains settings for useful things such as environment variables, aliases and scripts. If you have made changes to your `.bashrc` you can have them applied in your current shell instance with the commans `source ~/.bashrc`, depending on where your `.bashrc` is located.
 
-### [envVars]Environment variables
+### <a name="envVars"></a>Environment variables
 $PATH is an environment variable that specifies directories where executable programs like `ls` and `cd` are located. It is because of the PATH variable that the computer knows where to find programs when you execute them. So instead of typing `/bin/ls` you can type `ls`. 
 
 You will often see something like this in your `~/.bashrc`, with each path seperated by a colon `:`
@@ -142,7 +142,7 @@ For non-root users, `.` is usually included in `PATH` so that you can run progra
 
 You can quickly view all environment variables with the command `env`.
 
-### [aliases]Aliases
+### <a name="aliases"></a>Aliases
 Aliases allow a user to set custom commands for programs. Here are some examples of aliases that have been added to a `.bashrc`.
 ```bash
 alias ll="ls -l"
@@ -153,7 +153,7 @@ alias ...="cd ../.."
 
 Like `export`, `alias` can also be run on the command line, however, its changes will only last for the current session.
 
-### [dotfiles]Dotfiles
+### <a name="dotfiles"></a>Dotfiles
 Dotfiles are files that begin with a dot and are hidden by default. Most commonly, they are files that contain settings for your bash environment including custom functions, aliases and other settings that come in handy when working on the command line.
 
 Saving your aliases and other custom functions outside of `.bashrc` will decouple the code and is considered good practice. 
@@ -171,7 +171,7 @@ If I want to execute this file when a bash instance begins (so that I have acces
 
 Many developers [share their dotfiles online](https://dotfiles.github.io/).It's great to see the cool customizations the community comes up with and incorporate it into your own workflow. Bear in mind, it's important to understand what the code in your dotfiles does and to tailor it to your needs.
 
-## [ssh]SSH Keys
+## <a name="ssh"></a>SSH Keys
 
 When you access your server from your local machine via the command line you will often use the `ssh` command, e.g. `ssh user@mysite.com` or `ssh user@47.102.0.218`. You will then be prompted for a password and on correct entry will be logged in to your remote machine via the command line.
 
@@ -189,7 +189,7 @@ $ # replace id_rsa with your file name
 $ # this will append your ssh-key to the end of your authorized_keys file
 ```
 
-## [symbolicLinks]Symbolic links
+## <a name="symbolicLinks"></a>Symbolic links
 We can use the `ln` command to create links between files and directories. There are two types of links, hard links or soft links. We will focus entirely on softlinks also known as symbolic links or symlinks.
 
 Symbolic links act as shortcuts to other files. We use the command `ln -s` to create a link in one location to a file or directory in another location. The syntax works like this: `ln -s target_path link_path`
