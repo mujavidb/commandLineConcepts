@@ -124,6 +124,10 @@ drwxr-xr-x 1 root root 801 Sep 18 11:31 directory1
 You will see now that for `filenumber1` the permissions have changed from `rwxr-xr-x` to `rw-r--r--`. The level of access for all users has become more constricted as now the user only has `rw-` permission and all other users `r--` permission.
 
 ```
+$ ls -Al
+drwxr-xr-x 1 root root 801 Sep 18 11:31 directory1
+-rw-r--r-- 1 root root 801 Sep 18 11:31 filenumber1
+-rwxr-xr-x 1 root root 801 Sep 18 11:31 filenumber2
 $ chown webmaster filenumber2
 $ ls -Al
 drwxr-xr-x 1 root      root 801 Sep 18 11:31 directory1
@@ -134,7 +138,11 @@ drwxr-xr-x 1 root      root 801 Sep 18 11:31 directory1
 After running the `chown` command the owner of the file `filenumber2` is now `webmaster`. Since `filenumber2` has `rwxr-xr-x` permissions, this now means the user `webmaster` now has `rwx` access to it.
 
 ```
-$ chgrp www-data directory1
+$ ls -Al
+drwxr-xr-x 1 root      root 801 Sep 18 11:31 directory1
+-rw-r--r-- 1 root      root 801 Sep 18 11:31 filenumber1
+-rwxr-xr-x 1 webmaster root 801 Sep 18 11:31 filenumber2
+$ chgrp admins directory1
 $ ls -Al
 drwxr-xr-x 1 root      admins  801 Sep 18 11:31 directory1
 -rw-r--r-- 1 root      root    801 Sep 18 11:31 filenumber1
