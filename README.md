@@ -235,11 +235,11 @@ Using a password by itself for authentication is not secure and should be avoide
 
 After generating an SSH key on your local machine, you can place its public version in your remote machine's `~/.ssh/authorized_keys` file. When you next `ssh` into your remote machine you will no longer be asked for a password as authentication will take place via your ssh keys.
 
-The basic commands for this will be:
+To create an SSH key the basic command will be:
 ```
 $ ssh-keygen 
 ```
-You can follow the prompt to add a password to your key, but this isn't necessary. The command will generate two files in your `~/.ssh` directory. The first file will be a private key and the second a public key. By default these two files will be named `id_rsa` and `id_rsa.pub`.
+You can follow the prompt to add a password to your key, but this isn't necessary. The command will generate two files in your `~/.ssh` directory. The first file will be a private key and the second a public key. By default these two files will be named `id_rsa` (private) and `id_rsa.pub` (public). Unless you know what you are doing, you should not be sending the private key to others as this is akin to giving your personal password away.
 
 To access your remote machine via SSH, the public key must be copied and added to the file `~/.ssh/authorized_keys` on your remote machine. 
 
@@ -275,4 +275,4 @@ lrwxr-xr-x  1 webmaster  staff  18 24 Sep 15:10 mylink -> /home/mujavidb/.bashrc
 
 After running `ln -s` I created a new file called `mylink`. After running the `ls` command, you can tell this is a link because the line begins with an `l` instead of a `d` or `-`. You can also see the original file which it links back to. 
 
-If I chose to read, write or execute the file `mylink` the action would instead occur on `~/.bashrc`. However, if I move or delete `mylink` the change would happen on the symbolic link file and not on `~/.bashrc`.
+If I chose to read, write or execute the file `mylink` the action would instead occur on `~/.bashrc`. However, if I change the location or delete `mylink` the change would happen to the symbolic link file and not on `~/.bashrc`.
